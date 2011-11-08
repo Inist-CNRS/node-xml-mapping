@@ -1,0 +1,10 @@
+{
+	"name": "xml-mapping",
+	"version": "0.0.1",
+	"description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
+	"homepage": "http://github.com/touv/node-xml-mapping",
+	"main": "./xml-mapping.js",
+	"author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
+	"repository": "git://github.com/touv/node-xml-mapping",
+	"engines": {"node":">=0.2.0"}
+}
