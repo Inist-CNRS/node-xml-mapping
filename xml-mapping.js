@@ -15,7 +15,7 @@ var save = function(obj, addHeader) {
 		if (!o)
 			return 'undefined';
 		else if (Array.isArray(o))
-			return 'array;
+			return 'array';
 		else
 			return typeof o;
 	}
@@ -26,11 +26,11 @@ var save = function(obj, addHeader) {
 
 	var parse = function(o, n) {
 		var type = getype(o);
-		if (type != 'array' and type != 'object') {
+		if (type != 'array' && type != 'object') {
 			write('<[DATA[ ' + getval(o) + ' ]]>');
 		}
 		else if (type == 'array') {
-			forEach(o as v) {
+			o.forEach(function(item, index) {
 				var tv = getval(value);
 				if (type == 'array') {
 					write('<'+n+'>');
@@ -40,7 +40,7 @@ var save = function(obj, addHeader) {
 				else {
 					write('<[DATA[ ' + getval(v) + ' ]]>');
 				}
-			}
+			});
 		}
 		else if (type == 'object') {
 			for(var key in o){
@@ -73,11 +73,17 @@ var save = function(obj, addHeader) {
 
 		}
 	}
-
-	parse(obj.length == 1 ? obj : {this.default_tag_name : obj}, this.default_tag_name);
-
+    var o= {};
+    if (obj.length == 1) {
+        o = obj;
+    }
+    else {
+        o[this.default_tag_name] = obj;
+    }
+    parse(o, this.default_tag_name);
+	
 	return out;
 
 };
 
-exports.toXML = toXML;
+exports.toXML = save;
