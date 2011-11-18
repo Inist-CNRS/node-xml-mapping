@@ -1,1 +1,1 @@
-module.exports = require('./lib/xml-mapping');
+module.exports = require('./lib/xml-mapping.js');
