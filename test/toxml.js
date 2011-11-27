@@ -68,22 +68,25 @@ exports['t02'] = function (test) {
 	test.equal(output, '<row><key1 keyA="value1" keyB="value2"/><key2 keyA="value1" keyB="value2"/></row>');
 	test.done();
 };
-exports['t03'] = function (test) {
+exports['t03a'] = function (test) {
 	input = {
 		key : []
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<key/>'); 
+	test.equal(XMLMapping.dump(input), '<key/>'); 
+	test.done();
+}
+exports['t03b'] = function (test) {
 	input = {
 		key : [{},{}]
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<key/>'); 
+	test.equal(XMLMapping.dump(input), '<key/><key/>'); 
+	test.done();
+}
+exports['t03c'] = function (test) {
 	input = {
-		key : [{ $t : 'value'}, {$t : 'value'}]
+		key : [{ $t : 'value'}, { $t : 'value'}]
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<row><key>value</key><key>value</key></row>'); 
+	test.equal(XMLMapping.dump(input), '<key>value</key><key>value</key>'); 
 	test.done();
 };
 /*
