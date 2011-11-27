@@ -121,3 +121,19 @@ exports['t04b'] = function (test) {
 	test.equal(XMLMapping.dump(input), '<key><![CDATA[am]]></key><key><![CDATA[stram]]></key><key><![CDATA[dram]]></key>');
 	test.done();
 };
+exports['t05a'] = function (test) {
+	input = {
+		'#element' : [{ $cd : 'value'}, { _cd : 'value'}]
+	};
+	test.equal(XMLMapping.dump(input), '<![CDATA[value]]><![CDATA[value]]>'); 
+	test.done();
+};
+exports['t05b'] = function (test) {
+	input = {
+		key : {
+			'#element' : [{ $t : 'amstra'}, { _t : 'mdram'}]
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key>amstramdram</key>'); 
+	test.done();
+};
