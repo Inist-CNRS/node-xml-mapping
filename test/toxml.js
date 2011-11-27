@@ -1,40 +1,33 @@
 var XMLMapping = require('../');
 var input;
-var output;
 
 exports['t00'] = function (test) {
 	input = {};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<row/>') 
+	test.equal(XMLMapping.dump(input), '<row/>') 
 	input = 'string';
-	output = XMLMapping.dump(input);
-	test.equal(output, 'string') 
+	test.equal(XMLMapping.dump(input), 'string') 
 	input = 1234;
-	output = XMLMapping.dump(input);
-	test.equal(output, 1234) 
+	test.equal(XMLMapping.dump(input), 1234) 
 	test.done();
 };
 exports['t01'] = function (test) {
 	input = { 
 		key : {}
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<key/>');
+	test.equal(XMLMapping.dump(input), '<key/>');
 	input = {
 		key : {
 			key1: 'value'
 		}
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<key key1="value"/>');
+	test.equal(XMLMapping.dump(input), '<key key1="value"/>');
 	input = {
 		key : {
 			key1: 'value1',
 			key2: 'value2'
 		}
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<key key1="value1" key2="value2"/>');
+	test.equal(XMLMapping.dump(input), '<key key1="value1" key2="value2"/>');
 	test.done();
 };
 exports['t02'] = function (test) {
@@ -42,8 +35,7 @@ exports['t02'] = function (test) {
 		key1 : {},
 		key2 : {}
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<row><key1/><key2/></row>'); 
+	test.equal(XMLMapping.dump(input), '<row><key1/><key2/></row>'); 
 	input = {
 		key1 : {
 			key: 'value'
@@ -52,8 +44,7 @@ exports['t02'] = function (test) {
 			key: 'value'
 		}
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<row><key1 key="value"/><key2 key="value"/></row>'); 
+	test.equal(XMLMapping.dump(input), '<row><key1 key="value"/><key2 key="value"/></row>'); 
 	input = {
 		key1 : {
 			keyA: 'value1',
@@ -64,8 +55,7 @@ exports['t02'] = function (test) {
 			keyB: 'value2'
 		}
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<row><key1 keyA="value1" keyB="value2"/><key2 keyA="value1" keyB="value2"/></row>');
+	test.equal(XMLMapping.dump(input), '<row><key1 keyA="value1" keyB="value2"/><key2 keyA="value1" keyB="value2"/></row>');
 	test.done();
 };
 exports['t03a'] = function (test) {
@@ -84,30 +74,50 @@ exports['t03b'] = function (test) {
 }
 exports['t03c'] = function (test) {
 	input = {
-		key : [{ $t : 'value'}, { $t : 'value'}]
+		key : [{ $t : 'value'}, { _t : 'value'}]
+	};
+	test.equal(XMLMapping.dump(input), '<key>value</key><key>value</key>'); 
+	input = {
+		key : [{ '#text' : 'value'}, { '_text' : 'value'}]
 	};
 	test.equal(XMLMapping.dump(input), '<key>value</key><key>value</key>'); 
 	test.done();
 };
-/*
-exports['t04'] = function (test) {
+exports['t03d'] = function (test) {
 	input = {
-		'#text' : 'value'
+		key : [{ $c : 'value'}, { _c : 'value'}]
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, 'value');
+	test.equal(XMLMapping.dump(input), '<key><!--value--></key><key><!--value--></key>'); 
+	input = {
+		key : [{ '#comment' : 'value'}, { '_comment' : 'value'}]
+	};
+	test.equal(XMLMapping.dump(input), '<key><!--value--></key><key><!--value--></key>'); 
+	test.done();
+};
+exports['t03e'] = function (test) {
+	input = {
+		key : [{ $cd : 'value'}, { _cd : 'value'}]
+	};
+	test.equal(XMLMapping.dump(input), '<key><![CDATA[value]]></key><key><![CDATA[value]]></key>'); 
+	input = {
+		key : [{ '#cdata' : 'value'}, { '_cdata' : 'value'}]
+	};
+	test.equal(XMLMapping.dump(input), '<key><![CDATA[value]]></key><key><![CDATA[value]]></key>'); 
+	test.done();
+};
+
+
+exports['t04a'] = function (test) {
 	input = {
 		$t : 'value'
 	};
-	output = XMLMapping.dump(input);
-	test.equal(output, 'value');
-	input = {
-		key : {
-			$t : 'value'
-		}
-	};
-	output = XMLMapping.dump(input);
-	test.equal(output, '<key>value</key>');
+	test.equal(XMLMapping.dump(input), '');
 	test.done();
 };
-*/
+exports['t04b'] = function (test) {
+	input = {
+		key: ['am', 'stram', 'dram']
+	};
+	test.equal(XMLMapping.dump(input), '<key><![CDATA[am]]></key><key><![CDATA[stram]]></key><key><![CDATA[dram]]></key>');
+	test.done();
+};
