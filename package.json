@@ -6,5 +6,10 @@
 	"main": "./xml-mapping.js",
 	"author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
 	"repository": "git://github.com/touv/node-xml-mapping",
-	"engines": {"node":">=0.2.0"}
+	"engines": {
+		"node":">=0.2.0"
+	},
+	"dependencies" : {
+		"xml-writer"   :  ">=1.0.3"
+	}
 }
