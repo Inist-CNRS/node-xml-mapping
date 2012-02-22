@@ -1,13 +1,12 @@
 var XMLMapping = require('../');
 var input;
-
 exports['t00'] = function (test) {
 	input = '<row/>';
 	test.deepEqual(XMLMapping.load(input), {});
-//    input = 'string';
-//    test.equal(XMLMapping.load(input), 'string');
-//    input = 1234;
-//    test.equal(XMLMapping.load(input), 1234);
+	input = 'string';
+	test.equal(XMLMapping.load(input), 'string');
+	input = 1234;
+	test.equal(XMLMapping.load(input), 1234);
 	test.done();
 };
 exports['t01'] = function (test) {
@@ -26,8 +25,11 @@ exports['t02'] = function (test) {
 	test.deepEqual(XMLMapping.load(input), { key1 : { key: 'value' }, key2 : { key: 'value' } }); 
 	input = '<row><key1 keyA="value1" keyB="value2"/><key2 keyA="value1" keyB="value2"/></row>';
 	test.deepEqual(XMLMapping.load(input), { key1 : { keyA: 'value1', keyB: 'value2' }, key2 : { keyA: 'value1', keyB: 'value2' } });
+	input = '<row><key1 keyA="value1" keyB="value2" keyC="value3"/><key2 keyA="value1" keyB="value2" keyC="value3"/></row>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { keyA: 'value1', keyB: 'value2', keyC: 'value3' }, key2 : { keyA: 'value1', keyB: 'value2', keyC: 'value3' } });
 	test.done();
 };
+
 exports['t03a'] = function (test) {
 	input = '<key/>';
 	test.deepEqual(XMLMapping.load(input), { key : [] }); 
@@ -48,6 +50,10 @@ exports['t03c'] = function (test) {
 	test.done();
 };
 exports['t03d'] = function (test) {
+	input = '<key><!--value1--></key>';
+	test.deepEqual(XMLMapping.load(input), { key : { $c : 'value1'} }); 
+	input = '<key><!--value1--><!--value2--></key>';
+	test.deepEqual(XMLMapping.load(input), { key : { $c : ['value1','value2'] } }); 
 	input = '<key><!--value1--></key><key><!--value2--></key>';
 	test.deepEqual(XMLMapping.load(input), { key : [{ $c : 'value1'}, { $c : 'value2'}] }); 
 	input = '<key><!--value1--></key><key><!--value2--></key><key><!--value3--></key>';
@@ -55,12 +61,34 @@ exports['t03d'] = function (test) {
 	test.done();
 };
 exports['t03e'] = function (test) {
-	input = '<key><![CDATA[value1]]></key><key><![CDATA[value2]]></key>';
-	test.deepEqual(XMLMapping.load(input), { key : [{ $cd : 'value1'}, { $cd : 'value2'}] }); 
+	input = '<key><![CDATA[value1]]></key>';
+	test.deepEqual(XMLMapping.load(input), { key : { $cd : 'value1'} }); 
+	input = '<key><![CDATA[value1]]><![CDATA[value2]]></key>';
+	test.deepEqual(XMLMapping.load(input), { key : { $cd : ['value1', 'value2']} }); 
+	input = '<key1><key2><![CDATA[value1]]></key2><key3><![CDATA[value2]]></key3></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : { $cd : 'value1'}, key3 : { $cd : 'value2'} } }); 
 	input = '<key><![CDATA[value1]]></key><key><![CDATA[value2]]></key><key><![CDATA[value3]]></key>';
 	test.deepEqual(XMLMapping.load(input), { key : [{ $cd : 'value1'}, { $cd : 'value2'}, { $cd : 'value3'}] }); 
-//    input = '<![CDATA[value]]><![CDATA[value]]>';
-//    test.equal(XMLMapping.dump(input), { '#element' : [{ $cd : 'value'}, { $cd : 'value'}] }); 
 	test.done();
 };
-
+exports['t04'] = function (test) {
+	input = '<?xml version="1.0" encoding="UTF-8"?>\n<key1 key2="value1"><key3>value2</key3></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { $t : 'value2'} } }); 
+	input = '<key1 key2="value1"><key3>value2</key3></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { $t : 'value2'} } }); 
+	input = '<key1 key2="value1"><key3><key4>value2</key4></key3></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { key4 : { $t : 'value2'} } } }); 
+	input = '<key1 key2="value1"><key3><key4><key5>value2</key5></key4></key3></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { key4 : { key5 : { $t : 'value2'} } } } }); 
+	input = '<key1><key2 key3="value"><key4 key5="value" key6="value"><key7 key8="value" key9="value" key10="value">value</key7></key4></key2></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : { key3 : 'value', key4 : { key5 : 'value', key6 : 'value', key7 : { key8 : 'value', key9 : 'value', key10 : 'value', $t : 'value' } } } } }); 
+	test.done();
+};
+exports['t05'] = function (test) {
+	input = '<key1><key2>value1</key2><key3>value2</key3></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : {  key2 : { $t : 'value1'}, key3 : { $t : 'value2'} } }); 
+	input = '<key1 key2="value1"><key3>value2</key3><key4>value3</key4></key1>';
+	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { $t : 'value2'} , key4 : { $t : 'value3'} } }); 
+	test.done();
+};
+/* */

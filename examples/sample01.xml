@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:gCal="http://schemas.google.com/gCal/2005">
   <id>XXX</id>
   <updated>2006-11-12T21:25:30.000Z</updated>
@@ -21,7 +21,7 @@
     <category scheme="XXX" term="XXX"/>
     <category scheme="YYY" term="YYY"/>
     <title type="text">WebmasterWorld PubCon 2006: Google Developer Tools in General</title>
-        <content type="text">Google is sponsoring at &lt;a href=&quot;http://www.pubcon.com/&quot;&gt;WebmasterWorld PubCon 2006&lt;/a&gt;. Come and visit us at the booth or join us for an evening demo reception where we will be talking &quot;5 ways to enhance your website with Google Code&quot;.  After all, it is Vegas, baby! See you soon.</content>
+    <content type="text">Google is sponsoring at &lt;a href="http://www.pubcon.com/"&gt;WebmasterWorld PubCon 2006&lt;/a&gt;. Come and visit us at the booth or join us for an evening demo reception where we will be talking "5 ways to enhance your website with Google Code".  After all, it is Vegas, baby! See you soon.</content>
     <link rel="alternate" type="text/html" href="XXX" title="alternate"/>
     <link rel="self" type="application/atom+xml" href="XXX"/>
     <author>
@@ -39,5 +39,5 @@
       <gd:reminder minutes="10"/>
     </gd:when>
   </entry>
-  <!-- Etc. -->
+  <!--Etc.-->
 </feed>
