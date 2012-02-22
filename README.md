@@ -26,6 +26,9 @@ Output:
 
     <key>value</key> { key: { '$t': 'value' } }
 
+# Convention
+
+The rules of XML to JSON convertion are those used by Google in its GData protocol. More information here : http://code.google.com/apis/gdata/docs/json.html
 
 # Tests
 
