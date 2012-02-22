@@ -4,7 +4,7 @@
     "author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
     "contributors": [],
     "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
-    "keywords": [
+    "tags": [
         "xml",
         "json",
         "json2xml",
