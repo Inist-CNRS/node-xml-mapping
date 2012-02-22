@@ -12,13 +12,15 @@ With [npm](http://npmjs.org) do:
 
 
 # Usage
+```javascript
+var xm = require('xml-mapping');
 
-	var xm = require('xml-mapping');
-    
-	var json = xm.load('<key>value</key>');
-    var xml  = xm.dump(json);
-    
-	console.log(xml,json);
+var json = xm.load('<key>value</key>');
+var xml  = xm.dump(json);
+
+console.log(xml,json);
+console.log(json);
+```
 
 Output:
 
@@ -35,10 +37,17 @@ Use [nodeunit](https://github.com/caolan/nodeunit) to run the tests.
 # API Documentation
 
 ## load(String xml)
-Transform a string with XML in Javascript data structure (JSON). Return Object.
+Transform a string with XML in Javascript data structure (JSON). 
+**Return Object.**
 
-## Dump(Object json)
-Transform a Javascript data structure (JSON) in XML string. Return String.
+## dump(Object json)
+Transform a Javascript data structure (JSON) in XML string. **Return String.**
+
+## tojson(String xml)
+Alias of load.
+
+## toxml(Object json)
+Alias of dump.
 
 # Also
 
