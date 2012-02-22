@@ -1,6 +1,6 @@
 # xml2json and json2xml for NodeJS
 
-It's native javascript implementation of bidirectionnal mapping between XML and JS data structure (aka JSON)",
+It's native javascript implementation of a bidirectional converter between XML and JS data structure (aka JSON).
 You can convert any type of XML documents in an Javascript data structure.
 You can also do the reverse, converting a Javascript data structure in XML String. XML is still valid.
 
@@ -28,7 +28,7 @@ Output:
 
 # Convention
 
-The rules of XML to JSON convertion are those used by Google in its GData protocol. More information here : http://code.google.com/apis/gdata/docs/json.html
+The rules for converting XML to JSON are those used by Google in its GData protocol. More information here : http://code.google.com/apis/gdata/docs/json.html
 
 # Tests
 
