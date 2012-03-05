@@ -1,5 +1,6 @@
-[![Build Status](https://secure.travis-ci.org/touv/node-xml-mapping.png)](http://travis-ci.org/touv/node-xml-mapping.png)
 # xml2json and json2xml for NodeJS
+
+[![Build Status](https://secure.travis-ci.org/touv/node-xml-mapping.png?branch=master)](http://travis-ci.org/touv/node-xml-mapping)
 
 It's native javascript implementation of a bidirectional converter between XML and JS data structure (aka JSON).
 You can convert any type of XML documents in an Javascript data structure.
