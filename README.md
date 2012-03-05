@@ -1,3 +1,4 @@
+[![Build Status](https://secure.travis-ci.org/touv/node-xml-mapping.png)](http://travis-ci.org/touv/node-xml-mapping.png)
 # xml2json and json2xml for NodeJS
 
 It's native javascript implementation of a bidirectional converter between XML and JS data structure (aka JSON).
