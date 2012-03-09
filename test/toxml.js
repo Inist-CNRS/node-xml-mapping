@@ -137,3 +137,18 @@ exports['t05b'] = function (test) {
 	test.equal(XMLMapping.dump(input), '<key>amstramdram</key>'); 
 	test.done();
 };
+exports['t06'] = function (test) {
+	input = {
+		key : {
+			'$t' : 1
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key>1</key>'); 
+		input = {
+		key : {
+			'$t' : 0
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key>0</key>'); 
+	test.done();
+};
