@@ -9,7 +9,7 @@ You can also do the reverse, converting a Javascript data structure in XML Strin
 ## Contributors
 
   * [Nicolas Thouvenin](https://github.com/touv) 
-  * [zacronos](https://github.com/zacronos)
+  * [Joe Ibershoff](https://github.com/zacronos)
 
 # Installation
 
