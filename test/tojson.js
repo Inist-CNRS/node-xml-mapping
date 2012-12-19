@@ -85,10 +85,64 @@ exports['t04'] = function (test) {
 	test.done();
 };
 exports['t05'] = function (test) {
-	input = '<key1><key2>value1</key2><key3>value2</key3></key1>';
-	test.deepEqual(XMLMapping.load(input), { key1 : {  key2 : { $t : 'value1'}, key3 : { $t : 'value2'} } }); 
-	input = '<key1 key2="value1"><key3>value2</key3><key4>value3</key4></key1>';
-	test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { $t : 'value2'} , key4 : { $t : 'value3'} } }); 
-	test.done();
+  input = '<key1><key2>value1</key2><key3>value2</key3></key1>';
+  test.deepEqual(XMLMapping.load(input), { key1 : {  key2 : { $t : 'value1'}, key3 : { $t : 'value2'} } });
+  input = '<key1 key2="value1"><key3>value2</key3><key4>value3</key4></key1>';
+  test.deepEqual(XMLMapping.load(input), { key1 : { key2 : 'value1', key3 : { $t : 'value2'} , key4 : { $t : 'value3'} } });
+  test.done();
+};
+
+exports['t06a'] = function (test) {
+  input = {};
+  var caughtError = false;
+  try {
+    XMLMapping.load(input);
+  } catch (err) {
+    caughtError = true;
+  }
+  test.equal(caughtError, false);
+  try {
+    XMLMapping.load(input, {throwErrors: true});
+  } catch (err) {
+    caughtError = true;
+  }
+  test.equal(caughtError, true);
+  test.done();
+};
+
+exports['t06b'] = function (test) {
+  input = '<key1><key2>value1</key2><key3>value2</key3><partialTag';
+  var caughtError = false;
+  try {
+    XMLMapping.load(input);
+  } catch (err) {
+    caughtError = true;
+  }
+  test.equal(caughtError, false);
+  try {
+    XMLMapping.load(input, {throwErrors: true});
+  } catch (err) {
+    caughtError = true;
+  }
+  test.equal(caughtError, true);
+  test.done();
+};
+
+exports['t06c'] = function (test) {
+  input = '<key1><key2>value1</key2><key3>value2</key3>';
+  var caughtError = false;
+  try {
+    XMLMapping.load(input);
+  } catch (err) {
+    caughtError = true;
+  }
+  test.equal(caughtError, false);
+  try {
+    XMLMapping.load(input, {throwErrors: true});
+  } catch (err) {
+    caughtError = true;
+  }
+  test.equal(caughtError, true);
+  test.done();
 };
 /* */
