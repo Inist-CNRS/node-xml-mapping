@@ -6,6 +6,11 @@ It's native javascript implementation of a bidirectional converter between XML a
 You can convert any type of XML documents in an Javascript data structure.
 You can also do the reverse, converting a Javascript data structure in XML String. XML is still valid.
 
+## Contributors
+
+  * [Nicolas Thouvenin](https://github.com/touv) 
+  * [zacronos](https://github.com/zacronos)
+
 # Installation
 
 With [npm](http://npmjs.org) do:
