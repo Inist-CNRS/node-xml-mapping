@@ -1,6 +1,6 @@
 {
     "name": "xml-mapping",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
     "contributors": [],
     "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
@@ -10,14 +10,14 @@
         "json2xml",
         "xml2json"
     ],
-    "homepage": "http://github.com/lindory-project/node-xml-mapping",
+    "homepage": "http://github.com/touv/node-xml-mapping",
     "scripts": {
         "test": "nodeunit test/"
     },
     "main": "./xml-mapping.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/lindory-project/node-xml-mapping.git"
+        "url": "https://github.com/touv/node-xml-mapping.git"
     },
     "dependencies": {
         "xml-writer": ">=1.0.4",
