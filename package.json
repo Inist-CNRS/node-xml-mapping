@@ -1,10 +1,10 @@
 {
     "name": "xml-mapping",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
     "contributors": [],
     "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
-    "tags": [
+    "keywords": [
         "xml",
         "json",
         "json2xml",
@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "xml-writer": ">=1.0.4",
-        "sax": ">=0.3.5"
+        "sax": "=0.4.2"
     },
     "devDependencies": {
         "nodeunit": ">=0.7.3"
