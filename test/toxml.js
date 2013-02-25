@@ -150,3 +150,16 @@ exports['t07'] = function (test) {
   test.equal(XMLMapping.dump(input), '<key arg="arg">value</key>');
 	test.done();
 };
+exports['t08'] = function (test) {
+  input = {
+    key: {
+      a: "a",
+      val: {
+        $t: "val"
+      },
+      c: "c"
+    }
+  };
+  test.equal(XMLMapping.dump(input), '<key a="a" c="c"><val>val</val></key>');
+	test.done();
+};
