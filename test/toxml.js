@@ -141,25 +141,25 @@ exports['t06'] = function (test) {
 	test.done();
 };
 exports['t07'] = function (test) {
-  input = {
-    key: {
-      $t: "value",
-      arg: "arg"
-    }
-  };
-  test.equal(XMLMapping.dump(input), '<key arg="arg">value</key>');
+	input = {
+		key: {
+			$t: "value",
+			arg: "arg"
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key arg="arg">value</key>');
 	test.done();
 };
 exports['t08'] = function (test) {
-  input = {
-    key: {
-      a: "a",
-      val: {
-        $t: "val"
-      },
-      c: "c"
-    }
-  };
-  test.equal(XMLMapping.dump(input), '<key a="a" c="c"><val>val</val></key>');
+	input = {
+		key: {
+			a: "a",
+			val: {
+				$t: "val"
+			},
+			c: "c"
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key a="a" c="c"><val>val</val></key>');
 	test.done();
 };
