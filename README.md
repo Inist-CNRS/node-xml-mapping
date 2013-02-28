@@ -10,6 +10,7 @@ You can also do the reverse, converting a Javascript data structure in XML Strin
 
   * [Nicolas Thouvenin](https://github.com/touv) 
   * [Joe Ibershoff](https://github.com/zacronos)
+  * [Yura Zenevich](https://github.com/yzen)
 
 # Installation
 

@@ -1,33 +1,42 @@
 {
     "name": "xml-mapping",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
-    "contributors": [],
+    "contributors": [
+      {
+        "name": "Joe Ibershoff",
+        "url": "https://github.com/zacronos"
+      },
+      {
+        "name": "Yura Zenevich",
+        "url": "https://github.com/yzen"
+      }
+    ],
     "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
     "keywords": [
-        "xml",
-        "json",
-        "json2xml",
-        "xml2json"
+      "xml",
+      "json",
+      "json2xml",
+      "xml2json"
     ],
     "homepage": "http://github.com/touv/node-xml-mapping",
     "scripts": {
-        "test": "nodeunit test/"
+      "test": "nodeunit test/"
     },
     "main": "./xml-mapping.js",
     "repository": {
-        "type": "git",
-        "url": "https://github.com/touv/node-xml-mapping.git"
+      "type": "git",
+      "url": "https://github.com/touv/node-xml-mapping.git"
     },
     "dependencies": {
-        "xml-writer": ">=1.0.4",
-        "sax": "=0.4.2"
+      "xml-writer": ">=1.0.4",
+      "sax": "=0.4.2"
     },
     "devDependencies": {
-        "nodeunit": ">=0.7.3"
+      "nodeunit": ">=0.7.3"
     },
     "license": "MIT",
     "engines": {
-        "node": ">=0.2.0"
+      "node": ">=0.2.0"
     }
-}
+  }
