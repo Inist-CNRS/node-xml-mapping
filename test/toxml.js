@@ -74,35 +74,23 @@ exports['t03b'] = function (test) {
 }
 exports['t03c'] = function (test) {
 	input = {
-		key : [{ $t : 'value'}, { _t : 'value'}]
+		key : [{ $t : 'value'}, { $text : 'value'}, { '#text' : 'value'}]
 	};
-	test.equal(XMLMapping.dump(input), '<key>value</key><key>value</key>'); 
-	input = {
-		key : [{ '#text' : 'value'}, { '_text' : 'value'}]
-	};
-	test.equal(XMLMapping.dump(input), '<key>value</key><key>value</key>'); 
+	test.equal(XMLMapping.dump(input), '<key>value</key><key>value</key><key>value</key>');
 	test.done();
 };
 exports['t03d'] = function (test) {
 	input = {
-		key : [{ $c : 'value'}, { _c : 'value'}]
+		key : [{ $c : 'value'}, { '#comment' : 'value'}, { '$comment' : 'value'}]
 	};
-	test.equal(XMLMapping.dump(input), '<key><!--value--></key><key><!--value--></key>'); 
-	input = {
-		key : [{ '#comment' : 'value'}, { '_comment' : 'value'}]
-	};
-	test.equal(XMLMapping.dump(input), '<key><!--value--></key><key><!--value--></key>'); 
+	test.equal(XMLMapping.dump(input), '<key><!--value--></key><key><!--value--></key><key><!--value--></key>');
 	test.done();
 };
 exports['t03e'] = function (test) {
 	input = {
-		key : [{ $cd : 'value'}, { _cd : 'value'}]
+		key : [{ $cd : 'value'}, { '#cdata' : 'value'}, { '$cdata' : 'value'}]
 	};
-	test.equal(XMLMapping.dump(input), '<key><![CDATA[value]]></key><key><![CDATA[value]]></key>'); 
-	input = {
-		key : [{ '#cdata' : 'value'}, { '_cdata' : 'value'}]
-	};
-	test.equal(XMLMapping.dump(input), '<key><![CDATA[value]]></key><key><![CDATA[value]]></key>'); 
+	test.equal(XMLMapping.dump(input), '<key><![CDATA[value]]></key><key><![CDATA[value]]></key><key><![CDATA[value]]></key>');
 	test.done();
 };
 
@@ -123,7 +111,7 @@ exports['t04b'] = function (test) {
 };
 exports['t05a'] = function (test) {
 	input = {
-		'#element' : [{ $cd : 'value'}, { _cd : 'value'}]
+		'#element' : [{ $cd : 'value'}, { '#cd' : 'value'}]
 	};
 	test.equal(XMLMapping.dump(input), '<![CDATA[value]]><![CDATA[value]]>'); 
 	test.done();
@@ -150,5 +138,28 @@ exports['t06'] = function (test) {
 		}
 	};
 	test.equal(XMLMapping.dump(input), '<key>0</key>'); 
+	test.done();
+};
+exports['t07'] = function (test) {
+	input = {
+		key: {
+			$t: "value",
+			arg: "arg"
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key arg="arg">value</key>');
+	test.done();
+};
+exports['t08'] = function (test) {
+	input = {
+		key: {
+			a: "a",
+			val: {
+				$t: "val"
+			},
+			c: "c"
+		}
+	};
+	test.equal(XMLMapping.dump(input), '<key a="a" c="c"><val>val</val></key>');
 	test.done();
 };
