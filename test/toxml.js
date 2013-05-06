@@ -163,3 +163,16 @@ exports['t08'] = function (test) {
 	test.equal(XMLMapping.dump(input), '<key a="a" c="c"><val>val</val></key>');
 	test.done();
 };
+exports['t09'] = function (test) {
+	input = {
+		key: {
+			a: "a",
+			val: {
+				$t: "val"
+			},
+			c: "c"
+		}
+	};
+	test.equal(XMLMapping.dump(input, { indent: true }), '<key a="a" c="c">\n    <val>val</val>\n</key>');
+	test.done();
+};
