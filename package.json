@@ -1,6 +1,6 @@
 {
     "name": "xml-mapping",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
     "contributors": [
       {
@@ -10,6 +10,10 @@
       {
         "name": "Yura Zenevich",
         "url": "https://github.com/yzen"
+      },
+      {
+        "name": "Thorsten Lorenz",
+        "url": "https://github.com/thlorenz"
       }
     ],
     "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
