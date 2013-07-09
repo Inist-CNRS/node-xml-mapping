@@ -48,9 +48,29 @@ Use [nodeunit](https://github.com/caolan/nodeunit) to run the tests.
 
 # API Documentation
 
-## load(String xml)
+## load(String xml, Object options)
 Transform a string with XML in Javascript data structure (JSON). 
 **Return Object.**
+
+**Options**
+
+* `arrays` - an array of basic XPath strings that specify XML nodes that should be array, even when there is only one such node.
+
+```javascript
+var xml = '<key1>value1</key1><key2><key3>value3</key3></key2>';
+var json = XMLMapping.load(xml, {
+ arrays: [
+  '/key1',
+  '/key2/key3'
+ ]
+});
+console.log(json);
+
+// Should output:
+// (Note that value of key1 and key3 are arrays, as specified in options)
+// {"key1":[{"$t":"value1"}],"key2":{"key3":[{"$t":"value3"}]}}
+```
+
 
 ## dump(Object json)
 Transform a Javascript data structure (JSON) in XML string. **Return String.**
