@@ -145,4 +145,30 @@ exports['t06c'] = function (test) {
   test.equal(caughtError, true);
   test.done();
 };
+
+exports['t07'] = function (test) {
+	input = '<key1>value1</key1><key2><key3>value3</key3></key2>';
+	var options = {
+		arrays: [
+			'/key1',
+			'/key2/key3'
+		]
+	};
+
+	var expectedOutput = {
+		// key1 is array because of /key1
+		key1: [{
+			$t: 'value1'
+		}],
+		// key2 is not an array
+		key2: {
+			// key3 is an array because of /key2/key3
+			key3: [{
+				$t: 'value3'
+			}]
+		}
+	};
+	test.deepEqual(XMLMapping.load(input, options), expectedOutput);
+	test.done();
+};
 /* */
