@@ -5,19 +5,23 @@
     "contributors": [
       {
         "name": "Joe Ibershoff",
-        "url": "https://github.com/zacronos"
+        "url": "https://github.com/zacronos", 
+        "email": "joe@ibershoff.com"
       },
       {
         "name": "Yura Zenevich",
-        "url": "https://github.com/yzen"
+        "url": "https://github.com/yzen",
+        "email": "yura.zenevich@gmail.com"
       },
       {
         "name": "Thorsten Lorenz",
-        "url": "https://github.com/thlorenz"
+        "url": "https://github.com/thlorenz",
+        "email": "thlorenz@gmx.de"
       },
       {
         "name": "ntgn81",
-        "url" : "https://github.com/ntgn81"
+        "url" : "https://github.com/ntgn81",
+        "email": "ntgn81@gmail.com"
       }
     ],
     "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",
