@@ -103,4 +103,4 @@ Alias of dump.
 
 # License
 
-[MIT/X11](./LICENSE)
+[MIT/X11](https://raw.github.com/touv/node-xml-mapping/master/LICENSE)
