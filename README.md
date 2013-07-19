@@ -53,12 +53,13 @@ Use [nodeunit](https://github.com/caolan/nodeunit) to run the tests.
 Transform a string with XML in Javascript data structure (JSON). 
 **Return Object.**
 
-**Options**
+###Options
 
 **Warning : options break the symmetry. This means that the JSON generated may not reproduce the same XML**
 
-* `throwErrors` - //boolean// - Flag to throw errors of the SAX Parser //(default : false)//
-* `nested` - //boolean// - Flag to ignore nested tags inside text //(default : false)//
+* `throwErrors` - *boolean* - Flag to throw errors of the SAX Parser ; *default : false*
+* `nested` - *boolean* - Flag to ignore nested tags inside text : *default : false*
+
 ```javascript
 var xml = '<title>Title is <strong>important</strong></title>';
 var json = XMLMapping.load(xml, { nested: true });
@@ -67,7 +68,8 @@ console.log(json);
 // Should output:
 // { title : { $t : 'Title is<strong>important</strong>', strong: { '$t': 'important' }} }
 ```
-* `arrays` - //array// - an array of basic XPath strings that specify XML nodes that should be array, even when there is only one such node.
+
+* `arrays` - *array* - an array of basic XPath strings that specify XML nodes that should be array, even when there is only one such node.
 
 ```javascript
 var xml = '<key1>value1</key1><key2><key3>value3</key3></key2>';
