@@ -59,6 +59,7 @@ Transform a string with XML in Javascript data structure (JSON).
 
 * `throwErrors` - *boolean* - Flag to throw errors of the SAX Parser ; *default : false*
 * `nested` - *boolean* - Flag to ignore nested tags inside text : *default : false*
+* `comments` - *boolean* - Flag to ignore comments, if false all the comments will be ignored : *default : true*
 
 ```javascript
 var xml = '<title>Title is <strong>important</strong></title>';

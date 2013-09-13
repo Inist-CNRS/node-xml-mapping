@@ -171,4 +171,17 @@ exports['t07'] = function (test) {
 	test.deepEqual(XMLMapping.load(input, options), expectedOutput);
 	test.done();
 };
+
+exports['t08a'] = function (test) {
+  input = '<!-- comment --><key1><key2 attr="value1"/><key3 attr="value2"/></key1>';
+  test.deepEqual(XMLMapping.load(input), { '$c': 'comment', key1 : {  key2 : { attr : 'value1'}, key3 : { attr : 'value2'} } });
+  test.done();
+};
+exports['t08b'] = function (test) {
+  input = '<!-- comment --><key1><key2 attr="value1"/><key3 attr="value2"/></key1>';
+  test.deepEqual(XMLMapping.load(input, {comments: false}), { key1 : {  key2 : { attr : 'value1'}, key3 : { attr : 'value2'} } });
+  test.done();
+};
+
+
 /* */
