@@ -105,3 +105,7 @@ Alias of dump.
 # License
 
 [MIT/X11](https://raw.github.com/touv/node-xml-mapping/master/LICENSE)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/touv/node-xml-mapping/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
