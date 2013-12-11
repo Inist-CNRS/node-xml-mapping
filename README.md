@@ -101,7 +101,8 @@ Transform a Javascript data structure (JSON) in XML string. **Return String.**
 * `header` - *boolean* - Flag to add XML header; *default : false*
 * `version` - *string* - Set version attribute of XML header (see header flag); *default : 1.0*
 * `encoding` - *string* - Set encoding attribute of XML header (see header flag); *default : UTF-8*
-*
+
+
 ## tojson(String xml)
 Alias of load.
 
