@@ -22,6 +22,14 @@
       "name": "ntgn81",
       "url": "https://github.com/ntgn81",
       "email": "ntgn81@gmail.com"
+    },
+    {
+      "name": "Rowell Cruz",
+      "url": "https://github.com/rcruz"
+    },
+    {
+      "name": "JT",
+      "url": "https://github.com/spikyjt"
     }
   ],
   "description": "provide a bidirectionnal mapping between XML and JS data Structure (aka JSON)",

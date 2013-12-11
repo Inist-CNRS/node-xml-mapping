@@ -13,6 +13,8 @@ You can also do the reverse, converting a Javascript data structure in XML Strin
   * [Yura Zenevich](https://github.com/yzen)
   * [Thorsten Lorenz](https://github.com/thlorenz)
   * [ntgn81](https://github.com/ntgn81)
+  * [Rowell Cruz](https://github.com/rcruz)
+  * [JT](https://github.com/spikyjt)
 
 # Installation
 
@@ -88,9 +90,18 @@ console.log(json);
 ```
 
 
-## dump(Object json)
+## dump(Object json, Object options)
 Transform a Javascript data structure (JSON) in XML string. **Return String.**
 
+###Options
+
+**Warning : options break the symmetry. This means that the XML generated may not reproduce the same JSON**
+
+* `indent` - *boolean* - Flag to throw errors of the SAX Parser ; *default : false*
+* `header` - *boolean* - Flag to add XML header; *default : false*
+* `version` - *string* - Set version attribute of XML header (see header flag); *default : 1.0*
+* `encoding` - *string* - Set encoding attribute of XML header (see header flag); *default : UTF-8*
+*
 ## tojson(String xml)
 Alias of load.
 
