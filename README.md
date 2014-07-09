@@ -25,10 +25,10 @@ With [npm](http://npmjs.org) do:
 
 # Usage
 ```javascript
-var xm = require('xml-mapping');
+var XMLMapping = require('xml-mapping');
 
-var json = xm.load('<key>value</key>');
-var xml  = xm.dump(json);
+var json = XMLMapping.load('<key>value</key>');
+var xml  = XMLMapping.dump(json);
 
 console.log(xml,json);
 console.log(json);
