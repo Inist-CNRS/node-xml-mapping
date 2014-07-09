@@ -8,7 +8,7 @@ You can also do the reverse, converting a Javascript data structure in XML Strin
 
 ## Contributors
 
-  * [Nicolas Thouvenin](https://github.com/touv) 
+  * [Nicolas Thouvenin](https://github.com/touv)
   * [Joe Ibershoff](https://github.com/zacronos)
   * [Yura Zenevich](https://github.com/yzen)
   * [Thorsten Lorenz](https://github.com/thlorenz)
@@ -52,7 +52,7 @@ Use [nodeunit](https://github.com/caolan/nodeunit) to run the tests.
 # API Documentation
 
 ## load(String xml, Object options)
-Transform a string with XML in Javascript data structure (JSON). 
+Transform a string with XML in Javascript data structure (JSON).
 **Return Object.**
 
 ###Options
@@ -62,6 +62,8 @@ Transform a string with XML in Javascript data structure (JSON).
 * `throwErrors` - *boolean* - Flag to throw errors of the SAX Parser ; *default : false*
 * `nested` - *boolean* - Flag to ignore nested tags inside text : *default : false*
 * `comments` - *boolean* - Flag to ignore comments, if false all the comments will be ignored : *default : true*
+* `specialChar` - *string* - Set the first character of XML tag ($t, $text, $cd, $cdata, $e, $element, $c, $comment); *default : $*
+* `longTag` - *boolean* - Use long names tags($text, $element, $cdata, $comment) rather than short names ($t, $cd, $e, $c); *default : false*
 
 ```javascript
 var xml = '<title>Title is <strong>important</strong></title>';
@@ -101,6 +103,7 @@ Transform a Javascript data structure (JSON) in XML string. **Return String.**
 * `header` - *boolean* - Flag to add XML header; *default : false*
 * `version` - *string* - Set version attribute of XML header (see header flag); *default : 1.0*
 * `encoding` - *string* - Set encoding attribute of XML header (see header flag); *default : UTF-8*
+* `specialChar` - *string* - Set the first character of XML tag ($t, $text, $cd, $cdata, $e, $element, $c, $comment); *default : $*
 
 
 ## tojson(String xml)
