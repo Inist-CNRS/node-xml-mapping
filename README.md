@@ -92,6 +92,8 @@ console.log(json);
 // {"key1":[{"$t":"value1"}],"key2":{"key3":[{"$t":"value3"}]}}
 ```
 
+* `defaultRootTagName` - *string* - If there is one root element and the tag name matches this, we'll exclude the root from the generated JSON : *default : row*
+
 
 ## dump(Object json, Object options)
 Transform a Javascript data structure (JSON) in XML string. **Return String.**
@@ -105,6 +107,7 @@ Transform a Javascript data structure (JSON) in XML string. **Return String.**
 * `version` - *string* - Set version attribute of XML header (see header flag); *default : 1.0*
 * `encoding` - *string* - Set encoding attribute of XML header (see header flag); *default : UTF-8*
 * `specialChar` - *string* - Set the first character of XML tag ($t, $text, $cd, $cdata, $e, $element, $c, $comment); *default : $*
+* `defaultRootTagName` - *string* - If there are multiple roots we'll wrap them with this element *default : row*
 
 
 ## tojson(String xml)
@@ -124,4 +127,3 @@ Alias of dump.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/touv/node-xml-mapping/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

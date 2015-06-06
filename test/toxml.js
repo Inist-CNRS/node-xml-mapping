@@ -3,15 +3,15 @@ var input;
 
 exports['t00'] = function (test) {
 	input = {};
-	test.equal(XMLMapping.dump(input), '<row/>') 
+	test.equal(XMLMapping.dump(input), '<row/>')
 	input = 'string';
-	test.equal(XMLMapping.dump(input), 'string') 
+	test.equal(XMLMapping.dump(input), 'string')
 	input = 1234;
-	test.equal(XMLMapping.dump(input), 1234) 
+	test.equal(XMLMapping.dump(input), 1234)
 	test.done();
 };
 exports['t01'] = function (test) {
-	input = { 
+	input = {
 		key : {}
 	};
 	test.equal(XMLMapping.dump(input), '<key/>');
@@ -31,11 +31,11 @@ exports['t01'] = function (test) {
 	test.done();
 };
 exports['t02'] = function (test) {
-	input = { 
+	input = {
 		key1 : {},
 		key2 : {}
 	};
-	test.equal(XMLMapping.dump(input), '<row><key1/><key2/></row>'); 
+	test.equal(XMLMapping.dump(input), '<row><key1/><key2/></row>');
 	input = {
 		key1 : {
 			key: 'value'
@@ -44,7 +44,7 @@ exports['t02'] = function (test) {
 			key: 'value'
 		}
 	};
-	test.equal(XMLMapping.dump(input), '<row><key1 key="value"/><key2 key="value"/></row>'); 
+	test.equal(XMLMapping.dump(input), '<row><key1 key="value"/><key2 key="value"/></row>');
 	input = {
 		key1 : {
 			keyA: 'value1',
@@ -56,20 +56,25 @@ exports['t02'] = function (test) {
 		}
 	};
 	test.equal(XMLMapping.dump(input), '<row><key1 keyA="value1" keyB="value2"/><key2 keyA="value1" keyB="value2"/></row>');
+	input = {
+		key1 : {},
+		key2 : {}
+	};
+	test.equal(XMLMapping.dump(input, {defaultRootTagName: 'root'}), '<root><key1/><key2/></root>'); 
 	test.done();
 };
 exports['t03a'] = function (test) {
 	input = {
 		key : []
 	};
-	test.equal(XMLMapping.dump(input), '<key/>'); 
+	test.equal(XMLMapping.dump(input), '<key/>');
 	test.done();
 }
 exports['t03b'] = function (test) {
 	input = {
 		key : [{},{}]
 	};
-	test.equal(XMLMapping.dump(input), '<key/><key/>'); 
+	test.equal(XMLMapping.dump(input), '<key/><key/>');
 	test.done();
 }
 exports['t03c'] = function (test) {
@@ -113,7 +118,7 @@ exports['t05a'] = function (test) {
 	input = {
 		'#element' : [{ $cd : 'value'}, { '#cd' : 'value'}]
 	};
-	test.equal(XMLMapping.dump(input), '<![CDATA[value]]><![CDATA[value]]>'); 
+	test.equal(XMLMapping.dump(input), '<![CDATA[value]]><![CDATA[value]]>');
 	test.done();
 };
 exports['t05b'] = function (test) {
@@ -122,7 +127,7 @@ exports['t05b'] = function (test) {
 			'#element' : [{ $t : 'amstra'}, { _t : 'mdram'}]
 		}
 	};
-	test.equal(XMLMapping.dump(input), '<key>amstramdram</key>'); 
+	test.equal(XMLMapping.dump(input), '<key>amstramdram</key>');
 	test.done();
 };
 exports['t06'] = function (test) {
@@ -131,13 +136,13 @@ exports['t06'] = function (test) {
 			'$t' : 1
 		}
 	};
-	test.equal(XMLMapping.dump(input), '<key>1</key>'); 
+	test.equal(XMLMapping.dump(input), '<key>1</key>');
 		input = {
 		key : {
 			'$t' : 0
 		}
 	};
-	test.equal(XMLMapping.dump(input), '<key>0</key>'); 
+	test.equal(XMLMapping.dump(input), '<key>0</key>');
 	test.done();
 };
 exports['t07'] = function (test) {
