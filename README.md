@@ -15,6 +15,8 @@ You can also do the reverse, converting a Javascript data structure in XML Strin
   * [ntgn81](https://github.com/ntgn81)
   * [Rowell Cruz](https://github.com/rcruz)
   * [JT](https://github.com/spikyjt)
+  * [Bindu Wavell](https://github.com/binduwavell)
+  * [niederlec](https://github.com/niederlec)
 
 # Installation
 
