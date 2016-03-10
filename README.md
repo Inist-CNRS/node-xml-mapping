@@ -1,4 +1,5 @@
 # xml2json and json2xml for NodeJS
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/touv/node-xml-mapping?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Build Status](https://secure.travis-ci.org/Inist-CNRS/node-xml-mapping.png?branch=master)](http://travis-ci.org/Inist-CNRS/node-xml-mapping)
 
