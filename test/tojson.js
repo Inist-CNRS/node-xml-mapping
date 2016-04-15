@@ -27,6 +27,8 @@ exports['t02'] = function (test) {
 	test.deepEqual(XMLMapping.load(input), { key1 : { keyA: 'value1', keyB: 'value2' }, key2 : { keyA: 'value1', keyB: 'value2' } });
 	input = '<row><key1 keyA="value1" keyB="value2" keyC="value3"/><key2 keyA="value1" keyB="value2" keyC="value3"/></row>';
 	test.deepEqual(XMLMapping.load(input), { key1 : { keyA: 'value1', keyB: 'value2', keyC: 'value3' }, key2 : { keyA: 'value1', keyB: 'value2', keyC: 'value3' } });
+	input = '<root><key1 keyA="value1" keyB="value2" keyC="value3"/><key2 keyA="value1" keyB="value2" keyC="value3"/></root>';
+	test.deepEqual(XMLMapping.load(input, {defaultRootTagName: 'root'}), { key1 : { keyA: 'value1', keyB: 'value2', keyC: 'value3' }, key2 : { keyA: 'value1', keyB: 'value2', keyC: 'value3' } });
 	test.done();
 };
 

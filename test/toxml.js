@@ -56,6 +56,11 @@ exports['t02'] = function (test) {
 		}
 	};
 	test.equal(XMLMapping.dump(input), '<row><key1 keyA="value1" keyB="value2"/><key2 keyA="value1" keyB="value2"/></row>');
+	input = {
+		key1 : {},
+		key2 : {}
+	};
+	test.equal(XMLMapping.dump(input, {defaultRootTagName: 'root'}), '<root><key1/><key2/></root>'); 
 	test.done();
 };
 exports['t03a'] = function (test) {
